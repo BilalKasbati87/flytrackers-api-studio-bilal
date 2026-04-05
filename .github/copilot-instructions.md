@@ -1,0 +1,12 @@
+- [x] Verify that the copilot-instructions.md file in the .github directory is created. The workspace checklist is stored here.
+- [x] Clarify Project Requirements. Selected a Next.js TypeScript App Router project for an API-first aviationstack, KAYAK, and Expedia build.
+- [x] Scaffold the Project. Manually scaffolded the application at the workspace root because the folder name blocked create-next-app from using the default generator path.
+- [x] Customize the Project. Added provider adapters, internal API routes, a branded landing page, and planning documentation.
+- [x] Install Required Extensions. No extensions were required by the project setup information.
+- [x] Compile the Project. Dependencies installed successfully, and both lint and production build now pass.
+- [x] Create and Run Task. Added workspace tasks for development and production build in .vscode/tasks.json.
+- [ ] Launch the Project. Ready to start the dev server or add debug launch settings when requested.
+- [x] Ensure Documentation is Complete. README and docs reflect the current architecture, provider roles, and setup flow.
+- Work through each checklist item systematically.
+- Keep communication concise and focused.
+- Follow development best practices.

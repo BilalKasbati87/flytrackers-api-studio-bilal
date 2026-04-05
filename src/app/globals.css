@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5fbff;
+  --background-warm: #fff8ef;
+  --foreground: #12263a;
+  --muted: #5f7287;
+  --panel: rgba(255, 255, 255, 0.72);
+  --panel-strong: rgba(255, 255, 255, 0.9);
+  --line: rgba(18, 38, 58, 0.12);
+  --sky: #0f6cab;
+  --sea: #0f3d5e;
+  --sun: #f49d37;
+  --mist: #d9ecfb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  font-family: var(--font-body), "Source Sans 3", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(15, 108, 171, 0.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(244, 157, 55, 0.18), transparent 28%),
+    linear-gradient(180deg, var(--background) 0%, #eef6ff 48%, var(--background-warm) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.36) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.32) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.55;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), transparent 95%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), "Syne", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  font-family: "IBM Plex Mono", "Cascadia Code", monospace;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[28px] border border-[color:var(--line)] bg-[color:var(--panel)] backdrop-blur-xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-[color:var(--line)] px-3 py-1 text-sm font-semibold tracking-[0.12em] uppercase;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-tight text-[color:var(--sea)] md:text-4xl;
+  }
+
+  .field-shell {
+    @apply mt-2 w-full rounded-[20px] border border-white/80 bg-white/85 px-4 py-3 text-base text-[color:var(--foreground)] outline-none transition focus:border-[color:var(--sky)] focus:bg-white focus:ring-2 focus:ring-[color:var(--mist)];
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[color:var(--sea)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[color:var(--sky)] focus:outline-none focus:ring-2 focus:ring-[color:var(--mist)];
+  }
+
+  .cta-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-[color:var(--line)] bg-white/80 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--sea)] transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[color:var(--mist)];
+  }
+
+  .shell-link {
+    @apply inline-flex items-center justify-center rounded-full border border-white/80 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--sea)] transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[color:var(--mist)];
+  }
+
+  .explore-card {
+    @apply rounded-[28px] border border-white/80 bg-white/80 p-6 shadow-[0_16px_40px_rgba(15,61,94,0.08)];
+  }
+}

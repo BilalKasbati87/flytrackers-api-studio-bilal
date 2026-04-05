@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model SavedTrip {
+  id               String     @id @default(cuid())
+  title            String
+  summary          String?
+  vertical         String
+  status           String     @default("planning")
+  path             String
+  destinationLabel String?
+  startDate        String?
+  endDate          String?
+  travelers        String?
+  budget           String?
+  notes            String?
+  searchState      Json
+  tasks            TripTask[]
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+}
+
+model PartnerClick {
+  id            String   @id @default(cuid())
+  provider      String
+  vertical      String
+  label         String?
+  sourcePath    String?
+  destinationUrl String
+  metadata      Json?
+  createdAt     DateTime @default(now())
+}
+
+model TripTask {
+  id        String    @id @default(cuid())
+  tripId    String
+  title     String
+  done      Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  savedTrip SavedTrip @relation(fields: [tripId], references: [id], onDelete: Cascade)
+}
